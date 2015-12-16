@@ -23,5 +23,7 @@ VOLUME ["/var/cache/nginx"]
 #CUSTOM
 COPY /custom/default.conf /etc/nginx/conf.d/
 COPY /custom/.htpasswd /etc/nginx/.htpasswd
+RUN mkdir -p /etc/nginx/ssl
+COPY /custom/ssl/ /etc/nginx/ssl
 
 CMD ["nginx", "-g", "daemon off;"]
